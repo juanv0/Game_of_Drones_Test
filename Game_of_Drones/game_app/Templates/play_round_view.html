@@ -1,0 +1,30 @@
+<div style="float: left; width: 50%;">
+<h1>{{ title }}</h1>
+<h3>{{ player }}</h3>
+<form method="post">
+	{% csrf_token%}
+	{{ form.as_p }}
+	<button type="submit">OK</button>
+</form>
+</div>
+<div style="float: right; width: 50%;">
+	{% if matches %}
+	<h1>Score</h1>
+	<table>
+
+		<tr>
+		    <th>Round</th>
+			{% for round in rounds %}
+			<td>{{ round }}</td>
+		    {% endfor %}
+	    </tr>
+		<tr>
+            <th>Winner</th>
+            {% for match in matches %}
+            <td>{{ match }}</td>
+		    {% endfor %}
+        </tr>
+
+	</table>
+	{% endif%}
+</div>
