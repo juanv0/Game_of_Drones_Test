@@ -9,4 +9,5 @@ urlpatterns = [
     #path('', lambda request: redirect('startgame/', permanent=False)),
     path("playround/", PlayRound.as_view(), name="Play Round"),
     path("winnerview/", WinnerView.as_view(), name="Winner"),
+    path("", StartGame.as_view(), name="Start Game"),
 ]

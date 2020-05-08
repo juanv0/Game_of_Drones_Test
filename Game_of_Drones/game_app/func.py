@@ -19,12 +19,13 @@ def first_wins(v1, v2):
     res = [a, b, c]
     # becouse orthonormality | a + b + c | = 1
     sign = a + b + c
-    
-    if sign == 0:
-        print("Draw-----")
-    # I use the sign to decide what player win
-    if sign < 0:
-        return False
-    return True
+    return sign
+    # if sign == 0:
+        # print("Draw-----")
+        
+    # # I use the sign to decide what player win
+    # if sign < 0:
+        # return False
+    # return True
 
 

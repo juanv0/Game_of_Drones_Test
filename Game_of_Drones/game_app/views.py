@@ -81,17 +81,20 @@ class PlayRound(View):
                 player_2_move = player_2_move[1:-1].split(',')
                 first_move = [int(n) for n in player_1_move]
                 last_move = [int(n) for n in player_2_move]
-
-                if first_wins(first_move, last_move):
+                result = first_wins(first_move, last_move)
+                if result > 0:
                     request.session["player_1_wins"] += 1
                     request.session["info"] +=\
                         str(request.session.get('round_real')) + "," + request.session.get('player_1_name') + "-"
-                else:
+                elif result < 0:
                     request.session["player_2_wins"] += 1
                     request.session["info"] +=\
                         str(request.session.get('round_real')) + "," + request.session.get('player_2_name') + "-"
+                else:
+                    request.session["info"] +=\
+                        str(request.session.get('round_real')) + ", Draw -"
             request.session['round'] += 1
-
+                
             if request.session.get('player_1_wins') == 3:
                 request.session["winner"] = request.session.get('player_1_name')
                 return redirect("/winnerview")
