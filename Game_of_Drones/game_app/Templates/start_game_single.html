@@ -1,0 +1,10 @@
+<h1>{{ title }}</h1>
+<div>
+	<h3>{{ user.username }}</h3>
+	<h4>vs</h4>
+	<h3>Comm</h3>
+	<form method="post">
+		{% csrf_token %}
+		<button type="submit">Comenzar</button>
+	</form>
+</div>
